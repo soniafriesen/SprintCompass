@@ -1,0 +1,115 @@
+#mutation {
+# addproject(name: "SprintCompass", description: "Project Management Application", teamname: "Dream Geek", numberofteammembers: 3, numberofsprints: 3, velocity: 60, storypointconversion: 3)
+# {name,description,teamname,numberofteammembers,numberofsprints,velocity,storypointconversion}
+#}
+#mutation {
+#  addproject(name: "Tester", description: "Tester", teamname: "Tester", numberofteammembers: 3, numberofsprints: 3, velocity: 60, storypointconversion: 3,costperhour: 45)
+#{name,description,teamname,numberofteammembers,numberofsprints,velocity,storypointconversion,costperhour}
+#}
+#mutation{
+#  updateproject(name:"tester",teamname:"tester", numberofteammembers: 4, numberofsprints: 50,velocity:51)
+#  {name,teamname,numberofteammembers,numberofsprints,velocity}
+#}
+#{deleteallprojects}
+#{deletespecificproject(name:"Tester",teamname:"Tester")}
+#{getspecificproject(name:"Tester",teamname:"Tester"){name,description,teamname,numberofteammembers,numberofsprints,velocity,storypointconversion}}
+#{getallproject{name,description,teamname,numberofteammembers,numberofsprints,velocity,storypointconversion}}
+#mutation{addsprint(project:"Tester",team:"Tester",sprint:"Sprint 1",numberofuserstory: 3)
+#	{sprint,numberofuserstory,project,team}
+#}
+#{getallsprintsperproject(project:"Tester"){sprint,numberofuserstory,project,team}}
+#{getspecificsprint(project:"Tester",sprint:"Sprint 1"){sprint,numberofuserstory,project,team}}
+#mutation{
+#  updatesprint(project:"Tester",sprint:"Sprint 1",numberofuserstory: 7)
+#  {sprint,numberofuserstory,project,team}
+#}
+#{getalluserstory{userstory,sprint,status,numberofsubtasks,userpoints,assignedmember}}
+#{getuserstorybyname(userstory:"As a team member I want to capture/maintain basic project information.")
+#	{userstory,sprint,status,numberofsubtasks,userpoints,assignedmember}
+#}
+#{getuserstorybysprint(sprint:"Sprint 1",userstory:"As a team member I want to capture/maintain basic project information.")
+#  {userstory,sprint,status,numberofsubtasks,userpoints,assignedmember}
+#}
+#mutation{adduserstory(userstory:"Tester",sprint:"Sprint 1",userpoints: 3)
+#  {userstory,sprint,status,numberofsubtasks,userpoints,assignedmember}
+#}
+#mutation{updateusertorystatus(userstory:"Tester",status:"Development")
+#  {userstory,sprint,status,numberofsubtasks,userpoints,assignedmember}
+#}
+#mutation{updateusertorysubtasks(userstory:"Tester",numberofsubtasks: 3)
+#  {userstory,sprint,status,numberofsubtasks,userpoints,assignedmember}
+#}
+#mutation{moveuserstorytosprint(userstory:"Tester",sprint:"Sprint 3")
+#	{userstory,sprint,status,numberofsubtasks,userpoints,assignedmember}
+#}
+#mutation{assignmembertouserstory(userstory:"Tester",assignedmember:"Sonia Friesen")
+#	{userstory,sprint,status,numberofsubtasks,userpoints,assignedmember}
+#}
+#{getallsubtasks{subtask,userstory,status,assignedmember}}
+#mutation{addsubtask(subtask:"tester",userstory:"Tester")
+#{subtask,userstory,status,assignedmember}
+#}
+#{getallsubtaskbyuserstory(userstory:"Tester")
+#  {subtask,userstory,status,assignedmember}
+#}
+#{getsubtask(subtask:"tester")
+#  {subtask,userstory,status,assignedmember}
+#}
+#{getsubtaskbyuserstory(userstory:"Tester",subtask:"tester")
+#  {subtask,userstory,status,assignedmember}
+#}
+#mutation{assignmembertosubtask(assignedmember:"Sonia Friesen",subtask:"tester")
+#  {subtask,userstory,status,assignedmember}
+#}
+#mutation{updatesubtaskstatus(status:"Development",subtask:"tester")
+#  {subtask,userstory,status,assignedmember}
+#}
+#{deletesubtaskbyuserstory(userstory:"Tester",subtask:"tester")}
+#{getallteammembers{team,firstname,lastname,email}}
+#{getallmembersbyteam(team:"Dream Geek")
+#  {team,firstname,lastname,email}
+#}
+#{getspecificmember(lastname:"Friesen",email:"s_friesen@fanshaweonline.ca")
+#  {team,firstname,lastname,email}
+#}
+#mutation{addteammember(team:"tester",firstname:"tester",lastname:"Tester",email:"tester@acb.ca")
+#  {team,firstname,lastname,email}
+#}
+#mutation{updatememberemail(firstname:"tester",lastname:"Tester",email:"tester@abc.com")
+#  {team,firstname,lastname,email}
+#}
+#mutation{updatememberlastname(firstname:"tester",lastname:"Tester22",email:"tester@abc.com")
+# {team,firstname,lastname,email}
+#}
+#mutation{movemembertoteam(team:"Dream Geek",lastname:"Tester22",email:"tester@abc.com")
+# {team,firstname,lastname,email}
+#}
+#{deleteamember(lastname:"Tester22",email:"tester@abc.com")}
+#mutation{addbacklog(project:"SprintCompass",priority:2,userrole:"Team Member",iwantto:"Maintain a list of team members assigned to the project",ican:"Track estimated and actual times for each team.",relativeestimate:2)
+#	{project,priority,userrole,iwantto,ican,relativeestimate,estimatedcost}
+#}
+#{getallbacklogbyproject(project:"SprintCompass")
+ # {project,priority,userrole,iwantto,ican,relativeestimate,estimatedcost}
+#}
+#{getspecificbacklog(project:"SprintCompass",priority:1)
+#  {project,priority,userrole,iwantto,ican,relativeestimate,estimatedcost}
+#}
+#mutation{updatebacklogrelaticeestimate(project:"SprintCompass",priority:2,relativeestimate:2)
+#  {project,priority,userrole,iwantto,ican,relativeestimate,estimatedcost}
+#}
+#{deletebacklogitem(project:"SprintCompass",priority:2)}
+#{getallretrobysprintperproject(project:"SprintCompass",sprint:"Sprint 1")
+#  {project,sprint,userstory,subtask,originalstorypoints,originalhours,actualhours,reestimatehours}
+#}
+#{getretospecificsprintbyproject(project:"SprintCompass",sprint:"Sprint 1",userstory:"As a team member I want to capture/maintain basic project information.")
+ # {project,sprint,userstory,subtask,originalstorypoints,originalhours,actualhours,reestimatehours}
+#}
+#{getallretroforproject(project:"SprintCompass")
+#  {project,sprint,userstory,subtask,originalstorypoints,originalhours,actualhours,reestimatehours}
+#}
+#mutation{addsprintretrospective(project:"SprintCompass",sprint:"Sprint 1",userstory:"As a team member I want to capture/Maintain subtasks for each user story that is included in a Sprint Plan.",subtask:"Create a collection (called Subtasks) in MongoDB to accommodate fields which will be related to each user story",actualhours:2,reestimatehours:1)
+#  {project,sprint,userstory,subtask,originalstorypoints,originalhours,actualhours,reestimatehours}
+#}
+#mutation{updateretrospectivereestimates(project:"SprintCompass",sprint:"Sprint 1", userstory:"As a team member I want to capture/maintain basic project information.",reestimatehours:0)
+#  {project,sprint,userstory,subtask,originalstorypoints,originalhours,actualhours,reestimatehours}
+#}
